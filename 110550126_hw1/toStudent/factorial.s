@@ -1,7 +1,7 @@
 .data
-msg1:	.asciiz "Please input n = ? "
-msg2:	.asciiz "\nThe result of factorial(n) is : "
-
+msg1:	.asciiz "Enter first number: "
+msg2:	.asciiz "\nEnter second number: "
+msg3:   .asciiz "\nThe GCD is:"
 .text
 .globl main
 #------------------------- main -----------------------------
