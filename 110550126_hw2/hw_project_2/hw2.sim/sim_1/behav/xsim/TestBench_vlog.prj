@@ -1,0 +1,14 @@
+# compile verilog/system verilog design source files
+verilog xil_defaultlib  \
+"../../../../../HW2/ALU.v" \
+"../../../../../HW2/ALU_1bit.v" \
+"../../../../../HW2/Full_adder.v" \
+"../../../../../HW2/MUX.v" \
+"../../../../../HW2/Shifter.v" \
+"../../../../../HW2/TestBench.v" \
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort
