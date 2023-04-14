@@ -6,7 +6,6 @@ INFO: [VRFC 10-311] analyzing module ALU_1bit
 INFO: [VRFC 10-311] analyzing module ALU_1bit_bottom
 INFO: [VRFC 10-311] analyzing module ALU
 WARNING: [VRFC 10-8332] begin/end is required for generate-for in this mode of Verilog [C:/Users/User/Desktop/sophomore_2nd_semester/Computer Organization/homework/110550126_hw2/HW2/ALU.v:22]
-WARNING: [VRFC 10-8332] begin/end is required for generate-for in this mode of Verilog [C:/Users/User/Desktop/sophomore_2nd_semester/Computer Organization/homework/110550126_hw2/HW2/ALU.v:29]
 INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/User/Desktop/sophomore_2nd_semester/Computer Organization/homework/110550126_hw2/HW2/ALU_1bit.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module MUX_1bit
 WARNING: [VRFC 10-3609] overwriting previous definition of module 'MUX_1bit' [C:/Users/User/Desktop/sophomore_2nd_semester/Computer Organization/homework/110550126_hw2/HW2/MUX.v:1]

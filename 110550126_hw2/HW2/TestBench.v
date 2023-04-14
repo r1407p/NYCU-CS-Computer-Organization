@@ -3,7 +3,7 @@
 `define test_file_Shifter "test1_Shifter.txt"
 `define answer_file_ALU "ans1_ALU.txt"
 `define answer_file_Shifter "ans1_Shifter.txt"
-`define numOfTest 4
+`define numOfTest 100
 
 
 module TestBench();
@@ -62,7 +62,7 @@ module TestBench();
 	  
 	  i = i + 1;
 	  #1
-	  
+	  /*
 	  $display("ALU");
 	  $displayb(inp_ALU);
 	  $displayb(aluSrc1);
@@ -78,31 +78,47 @@ module TestBench();
       $displayb(overflow);
       $displayb(zero);
       $displayb(result_ALU);
-      
+      */
 	  if (ans_ALU[33] == overflow && ans_ALU[32] == zero && ans_ALU[31:0] == result_ALU) begin
 		score = score + 1;
+		 $display("#%0d is right\n", i);	
 	  end
 		  
 	  else begin
-	    $display("ALU test data #%0d is wrong\n", i);		  
+	    $display("ALU test data #%0d is wrong\n", i);	
+	    $display("ALU");
+	  $displayb(inp_ALU);
+	  $displayb(aluSrc1);
+      $displayb(aluSrc2);
+      $displayb(invertA);
+      $displayb(invertB);
+      $displayb(operation);
+      $display("ans");
+      $displayb(ans_ALU[33]);
+      $displayb(ans_ALU[32]);
+      $displayb(ans_ALU[31:0]);
+      $display("output");
+      $displayb(overflow);
+      $displayb(zero);
+      $displayb(result_ALU);	  
 	  end
 	  	  
-	  #1
-	  $displayb(inp_Shifter);
-	  $displayb(leftRight);
-	  $displayb(shamt);
-	  $displayb(sftSrc);
-      $display("ans"); 
-      $displayb(ans_Shifter[31:0]);
-      $display("output");
-      $displayb(result_Shifter);
-	  if (ans_Shifter[31:0] == result_Shifter) begin
-	    score = score + 1;
-	  end
+//	  #1
+//	  $displayb(inp_Shifter);
+//	  $displayb(leftRight);
+//	  $displayb(shamt);
+//	  $displayb(sftSrc);
+//      $display("ans"); 
+//      $displayb(ans_Shifter[31:0]);
+//      $display("output");
+//      $displayb(result_Shifter);
+//	  if (ans_Shifter[31:0] == result_Shifter) begin
+//	    score = score + 1;
+//	  end
 		  
-	  else begin
-	    $display("Shifter test data #%0d is wrong\n", i );		  
-	  end
+//	  else begin
+//	    $display("Shifter test data #%0d is wrong\n", i );		  
+//	  end
 		  	  	  
 	end
 	

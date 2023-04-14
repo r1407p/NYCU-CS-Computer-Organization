@@ -23,11 +23,6 @@ module ALU( result, zero, overflow, aluSrc1, aluSrc2, invertA, invertB, operatio
    endgenerate
    ALU_1bit_bottom ALU2(result[31],overflow,set, aluSrc1[31], aluSrc2[31], invertA, invertB, operation, carry[30], 1'b0 );
    /*zero*/
-   wire or_output[31:0];
-   or o1(or_output[1],result[0],result[1]);
-   generate for(i = 2;i<32;i= i+1)
-     or or_for_zero(or_output[i],or_output[i-1],result[i]);
-   endgenerate
-   not get_zero(zero,or_output[31]);
+  assign zero = ~|result;
    
 endmodule

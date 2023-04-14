@@ -15,15 +15,15 @@ less than
 if __name__ =="__main__":
     op_list = [0b0010, 0b0110, 0b0001, 0b0000, 0b1100, 0b1101, 0b0111]
     T = 100;
-    for i in range(0,T):
-        print("++++++++++++++++++++")
+    for i in range(1,T+1):
+        print(f"+++++++++{i}+++++++++++")
         op = random.choice(op_list)
         aluSrc1 = random.randint(-2**31,2**31-1)
         aluSrc2 = random.randint(-2**31,2**31-1)
         
         # aluSrc1 = 2
         # aluSrc2 = 4
-        # op = 0b0001
+        op = 0b0110
         
         alu_1=format(aluSrc1 & 0xffffffff, '032b')
         alu_2=format(aluSrc2 & 0xffffffff, '032b')
@@ -35,24 +35,16 @@ if __name__ =="__main__":
         overflow = 0
         if op == 0b0010: #add
             result = aluSrc1+aluSrc2
-            if aluSrc1 & 0x80000000:
-                if aluSrc2 & 0x80000000:
-                    if not result & 0x80000000:
-                        overflow =1
-            else:
-                if not aluSrc2 & 0x80000000:
-                    if result & 0x80000000:
-                        overflow =1
+            if aluSrc1 >0 and aluSrc2 >0 and result>=2147483648:
+                overflow =1
+            if aluSrc1 <0 and aluSrc2 <0 and result<-2147483648:
+                overflow =1
         elif op == 0b0110:#sub
             result =  aluSrc1-aluSrc2
-            if aluSrc1 & 0x80000000:
-                if not aluSrc2 & 0x80000000:
-                    if not result & 0x80000000:
-                        overflow = 1
-            else:
-                if aluSrc2 & 0x80000000:
-                    if result & 0x80000000:
-                        overfow= 1
+            if aluSrc1 >0 and aluSrc2 <0 and result>=2147483648:
+                overflow =1
+            if aluSrc1 <0 and aluSrc2 >0 and result<-2147483648:
+                overflow =1
         elif op == 0b0001:
             result =  aluSrc1&aluSrc2
         elif op == 0b0000:
@@ -85,13 +77,17 @@ if __name__ =="__main__":
         print(overflow)
         print(zero)
         print(result)
-        output_ = str(overflow)+str(zero)+str(result)
+        output_ = str(overflow)+str(zero)+str(result[1:])
         input.append(input_)
         output.append(output_)
+    file_in = open("../HW2/test1_ALU.txt",'w+')
+    file_out =open("../HW2/ans1_ALU.txt",'w+')
     print("++++++++++++++")
     for i in input:
-        print(i)
+        file_in.write(i+'\n')
+    file_in.close()
     print("==========")
     for i in output:
-        print(i)
+        file_out.write(i+'\n')
+    file_out.close()
         
