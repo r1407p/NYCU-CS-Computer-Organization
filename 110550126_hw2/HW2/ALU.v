@@ -14,12 +14,14 @@ module ALU( result, zero, overflow, aluSrc1, aluSrc2, invertA, invertB, operatio
    
   /*your code here*/
    wire carry[31:0];
+   wire set;
     genvar i ;
    /*result*/
-   ALU_1bit ALU0(result[0], carry[0], aluSrc1[0], aluSrc2[0], invertA, invertB, operation, invertB,result[31]);
-   generate for(i = 1;i<32;i = i+1)
+   ALU_1bit ALU0(result[0], carry[0], aluSrc1[0], aluSrc2[0], invertA, invertB, operation, invertB,set);
+   generate for(i = 1;i<31;i = i+1)
         ALU_1bit ALU1(result[i],carry[i],aluSrc1[i],aluSrc2[i],invertA,invertB,operation,carry[i-1],1'b0);
    endgenerate
+   ALU_1bit_bottom ALU2(result[31],overflow,set, aluSrc1[31], aluSrc2[31], invertA, invertB, operation, carry[30], 1'b0 );
    /*zero*/
    wire or_output[31:0];
    or o1(or_output[1],result[0],result[1]);
@@ -28,17 +30,4 @@ module ALU( result, zero, overflow, aluSrc1, aluSrc2, invertA, invertB, operatio
    endgenerate
    not get_zero(zero,or_output[31]);
    
-   /*overflow*/
-   /*
-   A B Ci Co S
-   0 0 0   0   0 
-   0 1 0   0   1
-   1 0 0   0   1 
-   1 1 0   1   0  *
-   0 0 1   0   1  *
-   0 1 1   1   0
-   1 0 1   1   0
-   1 1 1   1   1 
-   */
-   xor x1(overflow,carry[30],carry[31]);
 endmodule

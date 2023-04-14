@@ -1,21 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xc7k70tfbv676-1" LaunchTime="1681402798" LaunchIncrCheckpoint="$PSRCDIR/utils_1/imports/synth_1/ALU.dcp">
-  <File Type="PA-TCL" Name="ALU.tcl"/>
-  <File Type="REPORTS-TCL" Name="ALU_reports.tcl"/>
-  <File Type="RDS-RDS" Name="ALU.vds"/>
-  <File Type="RDS-UTIL" Name="ALU_utilization_synth.rpt"/>
-  <File Type="RDS-UTIL-PB" Name="ALU_utilization_synth.pb"/>
-  <File Type="RDS-DCP" Name="ALU.dcp"/>
+<GenRun Id="synth_1" LaunchPart="xc7k70tfbv676-1" LaunchTime="1681455488" LaunchIncrCheckpoint="$PSRCDIR/utils_1/imports/synth_1/ALU.dcp">
+  <File Type="PA-TCL" Name="Shifter.tcl"/>
+  <File Type="RDS-PROPCONSTRS" Name="Shifter_drc_synth.rpt"/>
+  <File Type="REPORTS-TCL" Name="Shifter_reports.tcl"/>
+  <File Type="RDS-RDS" Name="Shifter.vds"/>
+  <File Type="RDS-UTIL" Name="Shifter_utilization_synth.rpt"/>
+  <File Type="RDS-UTIL-PB" Name="Shifter_utilization_synth.pb"/>
+  <File Type="RDS-DCP" Name="Shifter.dcp"/>
+  <File Type="VDS-TIMINGSUMMARY" Name="Shifter_timing_summary_synth.rpt"/>
+  <File Type="VDS-TIMING-PB" Name="Shifter_timing_summary_synth.pb"/>
   <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1" RelGenDir="$PGENDIR/sources_1">
     <Filter Type="Srcs"/>
-    <File Path="$PPRDIR/../HW2/Full_adder.v">
+    <File Path="$PPRDIR/../HW2/MUX.v">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PPRDIR/../HW2/MUX.v">
+    <File Path="$PPRDIR/../HW2/Shifter.v">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
@@ -24,19 +27,21 @@
     </File>
     <File Path="$PPRDIR/../HW2/ALU_1bit.v">
       <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/../HW2/Full_adder.v">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
     <File Path="$PPRDIR/../HW2/ALU.v">
-      <FileInfo>
-        <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="implementation"/>
-        <Attr Name="UsedIn" Val="simulation"/>
-      </FileInfo>
-    </File>
-    <File Path="$PPRDIR/../HW2/Shifter.v">
       <FileInfo>
         <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
@@ -46,7 +51,7 @@
     </File>
     <Config>
       <Option Name="DesignMode" Val="RTL"/>
-      <Option Name="TopModule" Val="ALU"/>
+      <Option Name="TopModule" Val="Shifter"/>
       <Option Name="TopAutoSet" Val="TRUE"/>
     </Config>
   </FileSet>

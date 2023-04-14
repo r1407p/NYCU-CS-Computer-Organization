@@ -62,6 +62,8 @@ module TestBench();
 	  
 	  i = i + 1;
 	  #1
+	  
+	  $display("ALU");
 	  $displayb(inp_ALU);
 	  $displayb(aluSrc1);
       $displayb(aluSrc2);
@@ -76,22 +78,24 @@ module TestBench();
       $displayb(overflow);
       $displayb(zero);
       $displayb(result_ALU);
+      
 	  if (ans_ALU[33] == overflow && ans_ALU[32] == zero && ans_ALU[31:0] == result_ALU) begin
 		score = score + 1;
 	  end
 		  
 	  else begin
-//	    if(ans_ALU[33] != overflow)begin
-//	       $display("over");
-//	    end
-//	    if(ans_ALU[32] != zero)begin
-//	       $display("zero");
-//	    end
-//	    $display(result_ALU);
 	    $display("ALU test data #%0d is wrong\n", i);		  
 	  end
 	  	  
 	  #1
+	  $displayb(inp_Shifter);
+	  $displayb(leftRight);
+	  $displayb(shamt);
+	  $displayb(sftSrc);
+      $display("ans"); 
+      $displayb(ans_Shifter[31:0]);
+      $display("output");
+      $displayb(result_Shifter);
 	  if (ans_Shifter[31:0] == result_Shifter) begin
 	    score = score + 1;
 	  end

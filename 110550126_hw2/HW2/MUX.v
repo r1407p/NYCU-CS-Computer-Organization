@@ -27,5 +27,5 @@ module MUX_2bit(result,a,b,c,d,sel);
     and a2(t2,c,sel[1],ns_0);
     and a3(t3,d,sel[1],sel[0]);
     
-    or op(result,t1,t2,t3,t4);
+    or op(result,t1,t2,t3,t0);
 endmodule
