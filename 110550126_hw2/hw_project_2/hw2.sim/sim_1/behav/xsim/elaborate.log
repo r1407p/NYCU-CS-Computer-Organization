@@ -4,7 +4,6 @@ Running: C:/Xilinx/Vivado/2022.2/bin/unwrapped/win64.o/xelab.exe --incr --debug 
 Using 2 slave threads.
 Starting static elaboration
 Pass Through NonSizing Optimizer
-WARNING: [VRFC 10-3486] invalid context for genvar 'i' [C:/Users/User/Desktop/sophomore_2nd_semester/Computer Organization/homework/110550126_hw2/HW2/Shifter.v:21]
 Completed static elaboration
 Starting simulation data flow analysis
 WARNING: [XSIM 43-4099] "C:/Users/User/Desktop/sophomore_2nd_semester/Computer Organization/homework/110550126_hw2/HW2/ALU.v" Line 2. Module ALU_default doesn't have a timescale but at least one module in design has a timescale.
@@ -116,7 +115,7 @@ Compiling module xil_defaultlib.MUX_2bit
 Compiling module xil_defaultlib.ALU_1bit
 Compiling module xil_defaultlib.ALU_1bit_bottom
 Compiling module xil_defaultlib.ALU_default
-Compiling module xil_defaultlib.Shifter_default
+Compiling module xil_defaultlib.Shifter
 Compiling module xil_defaultlib.TestBench
 Compiling module xil_defaultlib.glbl
 Built simulation snapshot TestBench_behav

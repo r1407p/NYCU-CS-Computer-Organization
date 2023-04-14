@@ -19,7 +19,8 @@ module ALU_1bit( result, carryOut, a, b, invertA, invertB, operation, carryIn, l
   not nb(not_b,b);
   MUX_1bit geta(true_a,a,not_a,invertA);
   MUX_1bit getb(true_b,b,not_b,invertB);
-
+//  xor x1(true_a,a,invertA);
+//  xor x2(true_b,b,invertB);
   wire in0,in1,in2;
   or o0(in0,true_a,true_b);
   and a0(in1,true_a,true_b);
@@ -46,6 +47,7 @@ module ALU_1bit_bottom( result, overflow,set, a, b, invertA, invertB, operation,
   not nb(not_b,b);
   MUX_1bit geta(true_a,a,not_a,invertA);
   MUX_1bit getb(true_b,b,not_b,invertB);
+
 
   wire in0,in1,in2;
   or o0(in0,true_a,true_b);

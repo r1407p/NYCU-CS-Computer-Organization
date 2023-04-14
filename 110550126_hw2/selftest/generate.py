@@ -85,8 +85,8 @@ if __name__ =="__main__":
         output_ = str(overflow)+str(zero)+str(result[1:])
         input.append(input_)
         output.append(output_)
-    file_in = open("../HW2/test1_ALU.txt",'w+')
-    file_out =open("../HW2/ans1_ALU.txt",'w+')
+    file_in = open("test1_ALU.txt",'w+')
+    file_out =open("ans1_ALU.txt",'w+')
     print("++++++++++++++")
     for i in input:
         file_in.write(i+'\n')
