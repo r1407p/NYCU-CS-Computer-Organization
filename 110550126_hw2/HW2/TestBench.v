@@ -3,7 +3,7 @@
 `define test_file_Shifter "test1_Shifter.txt"
 `define answer_file_ALU "ans1_ALU.txt"
 `define answer_file_Shifter "ans1_Shifter.txt"
-`define numOfTest 4
+`define numOfTest 100
 
 
 module TestBench();

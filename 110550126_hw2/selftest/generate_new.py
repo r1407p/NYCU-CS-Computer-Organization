@@ -55,6 +55,10 @@ if __name__ =="__main__":
             result =  ~(aluSrc1|aluSrc2)
         elif op == 0b0111:
             temp = aluSrc1-aluSrc2
+            if aluSrc1 >0 and aluSrc2 <0 and temp >= 2147483648:
+                overflow = 1
+            if aluSrc1 <0 and aluSrc2 >0 and temp < -2147483648:
+                overflow = 1
             print(temp)
             temp = str(format(temp& 0x1ffffffff,"033b"))
             print(temp)

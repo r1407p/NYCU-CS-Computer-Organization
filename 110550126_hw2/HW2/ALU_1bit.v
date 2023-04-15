@@ -55,10 +55,9 @@ module ALU_1bit_bottom( result, overflow,set, a, b, invertA, invertB, operation,
   Full_adder F1(in2, carryOut, carryIn, true_a, true_b);
   buf b1(set,in2);
   MUX_2bit M2_1(result,in0,in1,in2,less,operation);
-  wire n_op_0,over;
-  not nt(n_op_0,operation[0]);
+  wire over;
   xor x1(over,carryIn,carryOut);
-  and a1(overflow,operation[1],n_op_0,over);
+  and a1(overflow,operation[1],over);
 endmodule
 
 
