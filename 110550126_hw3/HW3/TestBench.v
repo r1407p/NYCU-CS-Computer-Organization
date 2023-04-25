@@ -1,6 +1,6 @@
 `timescale 1ns/1ps
 `define CYCLE_TIME 10			
-`define END_COUNT 25
+`define END_COUNT 100
 
 module TestBench;
 
@@ -72,13 +72,13 @@ end
 end
 
 initial  begin
-	$readmemb("CO_P3_test_data2.txt", cpu.IM.Instr_Mem);  //Read instruction from "CO_P3_test_data1.txt" 
+	$readmemb("CO_P3_test_data4.txt", cpu.IM.Instr_Mem);  //Read instruction from "CO_P3_test_data1.txt" 
     handle = $fopen("CO_P3_result.txt");
 	
 	CLK = 0;
     RST = 0;
 	count = 0;
-    end_count=25;
+    end_count=100;
 	instruction = 32'd0;
     @(negedge CLK);
 	RST = 1;
