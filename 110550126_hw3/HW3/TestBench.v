@@ -72,7 +72,7 @@ end
 end
 
 initial  begin
-	$readmemb("CO_P3_test_data4.txt", cpu.IM.Instr_Mem);  //Read instruction from "CO_P3_test_data1.txt" 
+	$readmemb("CO_P4_test_data4.txt", cpu.IM.Instr_Mem);  //Read instruction from "CO_P3_test_data1.txt" 
     handle = $fopen("CO_P3_result.txt");
 	
 	CLK = 0;

@@ -1,0 +1,7 @@
+Time resolution is 1 ps
+WARNING: File CO_P4_test_data4.txt referenced on C:/Users/User/Desktop/sophomore_2nd_semester/Computer Organization/homework/110550126_hw3/HW3/ALU.v at line 47 cannot be opened for reading. Please ensure that this file is available in the current working directory.
+WARNING: file CO_P3_result.txt could not be opened
+============================================
+   Congratulation. You pass  TA's pattern   
+============================================
+$stop called at time : 40 ns : File "C:/Users/User/Desktop/sophomore_2nd_semester/Computer Organization/homework/110550126_hw3/HW3/TestBench.v" Line 263
