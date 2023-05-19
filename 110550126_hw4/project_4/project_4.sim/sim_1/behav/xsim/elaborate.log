@@ -1,0 +1,27 @@
+Vivado Simulator v2022.2
+Copyright 1986-1999, 2001-2022 Xilinx, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2022.2/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot TestBench_behav xil_defaultlib.TestBench xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+ERROR: [VRFC 10-2991] 'IM' is not declared under prefix 'cpu' [C:/Users/User/Desktop/sophomore_2nd_semester/Computer Organization/homework/110550126_hw4/CO_Lab4/CO_Lab4_Template/TestBench.v:139]
+ERROR: [VRFC 10-2991] 'IM' is not declared under prefix 'cpu' [C:/Users/User/Desktop/sophomore_2nd_semester/Computer Organization/homework/110550126_hw4/CO_Lab4/CO_Lab4_Template/TestBench.v:154]
+ERROR: [VRFC 10-2991] 'IM' is not declared under prefix 'cpu' [C:/Users/User/Desktop/sophomore_2nd_semester/Computer Organization/homework/110550126_hw4/CO_Lab4/CO_Lab4_Template/TestBench.v:403]
+ERROR: [VRFC 10-2991] 'RF' is not declared under prefix 'cpu' [C:/Users/User/Desktop/sophomore_2nd_semester/Computer Organization/homework/110550126_hw4/CO_Lab4/CO_Lab4_Template/TestBench.v:419]
+ERROR: [VRFC 10-2991] 'RF' is not declared under prefix 'cpu' [C:/Users/User/Desktop/sophomore_2nd_semester/Computer Organization/homework/110550126_hw4/CO_Lab4/CO_Lab4_Template/TestBench.v:422]
+ERROR: [VRFC 10-2991] 'RF' is not declared under prefix 'cpu' [C:/Users/User/Desktop/sophomore_2nd_semester/Computer Organization/homework/110550126_hw4/CO_Lab4/CO_Lab4_Template/TestBench.v:425]
+ERROR: [VRFC 10-2991] 'DM' is not declared under prefix 'cpu' [C:/Users/User/Desktop/sophomore_2nd_semester/Computer Organization/homework/110550126_hw4/CO_Lab4/CO_Lab4_Template/TestBench.v:428]
+ERROR: [VRFC 10-2991] 'DM' is not declared under prefix 'cpu' [C:/Users/User/Desktop/sophomore_2nd_semester/Computer Organization/homework/110550126_hw4/CO_Lab4/CO_Lab4_Template/TestBench.v:431]
+ERROR: [VRFC 10-2991] 'RF' is not declared under prefix 'cpu' [C:/Users/User/Desktop/sophomore_2nd_semester/Computer Organization/homework/110550126_hw4/CO_Lab4/CO_Lab4_Template/TestBench.v:443]
+ERROR: [VRFC 10-2991] 'RF' is not declared under prefix 'cpu' [C:/Users/User/Desktop/sophomore_2nd_semester/Computer Organization/homework/110550126_hw4/CO_Lab4/CO_Lab4_Template/TestBench.v:449]
+ERROR: [VRFC 10-2991] 'DM' is not declared under prefix 'cpu' [C:/Users/User/Desktop/sophomore_2nd_semester/Computer Organization/homework/110550126_hw4/CO_Lab4/CO_Lab4_Template/TestBench.v:470]
+ERROR: [VRFC 10-2991] 'DM' is not declared under prefix 'cpu' [C:/Users/User/Desktop/sophomore_2nd_semester/Computer Organization/homework/110550126_hw4/CO_Lab4/CO_Lab4_Template/TestBench.v:496]
+ERROR: [VRFC 10-2991] 'DM' is not declared under prefix 'cpu' [C:/Users/User/Desktop/sophomore_2nd_semester/Computer Organization/homework/110550126_hw4/CO_Lab4/CO_Lab4_Template/TestBench.v:501]
+ERROR: [VRFC 10-2991] 'DM' is not declared under prefix 'cpu' [C:/Users/User/Desktop/sophomore_2nd_semester/Computer Organization/homework/110550126_hw4/CO_Lab4/CO_Lab4_Template/TestBench.v:504]
+ERROR: [VRFC 10-2991] 'RF' is not declared under prefix 'cpu' [C:/Users/User/Desktop/sophomore_2nd_semester/Computer Organization/homework/110550126_hw4/CO_Lab4/CO_Lab4_Template/TestBench.v:507]
+ERROR: [VRFC 10-2991] 'DM' is not declared under prefix 'cpu' [C:/Users/User/Desktop/sophomore_2nd_semester/Computer Organization/homework/110550126_hw4/CO_Lab4/CO_Lab4_Template/TestBench.v:520]
+ERROR: [VRFC 10-2991] 'DM' is not declared under prefix 'cpu' [C:/Users/User/Desktop/sophomore_2nd_semester/Computer Organization/homework/110550126_hw4/CO_Lab4/CO_Lab4_Template/TestBench.v:524]
+ERROR: [VRFC 10-2991] 'DM' is not declared under prefix 'cpu' [C:/Users/User/Desktop/sophomore_2nd_semester/Computer Organization/homework/110550126_hw4/CO_Lab4/CO_Lab4_Template/TestBench.v:534]
+ERROR: [VRFC 10-2991] 'DM' is not declared under prefix 'cpu' [C:/Users/User/Desktop/sophomore_2nd_semester/Computer Organization/homework/110550126_hw4/CO_Lab4/CO_Lab4_Template/TestBench.v:549]
+INFO: [#UNDEF] Sorry, too many errors..
+ERROR: [XSIM 43-3322] Static elaboration of top level Verilog design unit(s) in library work failed.

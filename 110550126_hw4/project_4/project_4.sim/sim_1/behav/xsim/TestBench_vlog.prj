@@ -1,0 +1,23 @@
+# compile verilog/system verilog design source files
+verilog xil_defaultlib  \
+"../../../../../CO_Lab4/CO_Lab4_Template/ALU.v" \
+"../../../../../CO_Lab4/CO_Lab4_Template/ALU_Ctrl.v" \
+"../../../../../CO_Lab4/CO_Lab4_Template/Adder.v" \
+"../../../../../CO_Lab4/CO_Lab4_Template/Data_Memory.v" \
+"../../../../../CO_Lab4/CO_Lab4_Template/Decoder.v" \
+"../../../../../CO_Lab4/CO_Lab4_Template/Instr_Memory.v" \
+"../../../../../CO_Lab4/CO_Lab4_Template/Mux2to1.v" \
+"../../../../../CO_Lab4/CO_Lab4_Template/Mux3to1.v" \
+"../../../../../CO_Lab4/CO_Lab4_Template/Program_Counter.v" \
+"../../../../../CO_Lab4/CO_Lab4_Template/Reg_File.v" \
+"../../../../../CO_Lab4/CO_Lab4_Template/Shifter.v" \
+"../../../../../CO_Lab4/CO_Lab4_Template/Sign_Extend.v" \
+"../../../../../CO_Lab4/CO_Lab4_Template/Simple_Single_CPU.v" \
+"../../../../../CO_Lab4/CO_Lab4_Template/Zero_Filled.v" \
+"../../../../../CO_Lab4/CO_Lab4_Template/TestBench.v" \
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort
