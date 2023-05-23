@@ -16,7 +16,7 @@ reg	[32-1:0] result;
 
 //Main function
 /*your code here*/
-always @(*)begin
+always @(ALU_operation_i, aluSrc1, aluSrc2)begin
       if(ALU_operation_i == 4'b0010)begin//add
         result = aluSrc1+aluSrc2;
         if(aluSrc1[31]==0&&aluSrc2[31]==0&&result[31]==1)begin
@@ -49,7 +49,7 @@ always @(*)begin
         overflow  = 0 ;
       end
       else if(ALU_operation_i == 4'b0111)begin//slt
-        result = aluSrc1 < aluSrc2 ? 1 : 0;
+        result = (aluSrc1 + (~aluSrc2)+1) >32'b10000000000000000000000000000000 ? 32'd1 : 32'd0;
         overflow  = 0 ;
       end
       else begin
@@ -58,5 +58,10 @@ always @(*)begin
       end
       
       zero = (result==0)?1:0;
+      //$display("a:%b",aluSrc1);
+      //$display("b:%b",aluSrc2);
+      //$display("c:%b  ",result);
 end
+
+
 endmodule

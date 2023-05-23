@@ -18,7 +18,7 @@ reg			Jump_o, Branch_o, BranchType_o, MemWrite_o, MemRead_o;
 
 //Main function
 /*your code here*/
-always @(*)begin
+always @(instr_op_i)begin
     if(instr_op_i ==6'b100001)begin // lw
         RegWrite_o = 1;
         ALUOp_o = 3'b000;
@@ -68,8 +68,9 @@ always @(*)begin
         MemRead_o = 0;
     end
     if(instr_op_i ==6'b100010)begin // jump
+        
         RegWrite_o = 0;
-        ALUOp_o = 3'b111; //xxx
+        ALUOp_o = 3'b000; //xxx
         ALUSrc_o = 0;
         RegDst_o = 2'b00; //no matter
         MemtoReg_o = 2'b00;

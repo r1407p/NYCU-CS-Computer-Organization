@@ -13,7 +13,7 @@ reg		[2-1:0] FURslt_o;
 
 //Main function
 /*your code here*/
-always @(*)begin
+always @(funct_i,ALUOp_i)begin
     if(ALUOp_i == 3'b000)begin//lw,sw
         ALU_operation_o = 4'b0010;//add in ALU
         FURslt_o = 2'b00;// address from ALU

@@ -30,13 +30,13 @@ Adder PC_plus_4(
     .src1_i(PC_o), 
     .src2_i(32'd4), 
     .sum_o(PC_add1)//32b
-);
-Instr_Memory instr_memory( 
+); 
+Instr_Memory IM( 
         .pc_addr_i(PC_o), //32b
         .instr_o(instr)//32b
 );
 Decoder decoder( 
-        .instr_op_i(instr), 
+        .instr_op_i(instr[31:26]), //6b
         .RegWrite_o(RegWrite),	
         .ALUOp_o(ALUOP), 
         .ALUSrc_o(ALUSrc), 
@@ -49,13 +49,13 @@ Decoder decoder(
         .MemtoReg_o(MemtoReg)
 );
 
-Mux2to1 instr_to_reg(
+Mux2to1 #(.size(5))instr_to_reg(
         .data0_i(instr[20:16]),//5b
         .data1_i(instr[15:11]),//5b
-        .select_i(RegDst),
+        .select_i(RegDst[0]),
         .data_o(WriteReg_addr)//5b
 );
-Reg_File reg_file( 
+Reg_File RF( 
         .clk_i(clk_i), 
         .rst_n(rst_n), 
         .RSaddr_i(instr[25:21]), 
@@ -79,7 +79,7 @@ Adder adder_for_branch(
         .src2_i({signextend[29:0],2'b00}), 
         .sum_o(PC_add2)
 );
-Mux2to1 get_alusrc2(
+Mux2to1 #(.size(32))get_alusrc2(
         .data0_i(ReadData2),//32b
         .data1_i(signextend),//32b
         .select_i(ALUSrc),
@@ -95,7 +95,7 @@ ALU alu(
 );
 Shifter shifter( 
         .result(ShifterResult), 
-        .leftRight(ALU_operation),
+        .leftRight(ALU_operation[0]),
         .shamt(instr[10:6]), 
         .sftSrc(ALUinput2)//32b
 );
@@ -106,14 +106,14 @@ ALU_Ctrl alu_ctrl(
         .FURslt_o(FURslt) 
 );
 
-Mux3to1 select_for_mem( 
+Mux3to1 #(.size(32))select_for_mem( 
         .data0_i(ALUResult), 
         .data1_i(ShifterResult), 
         .data2_i(zerofilled), 
         .select_i(FURslt), 
         .data_o(Mux3_result) 
 );
-Data_Memory data_memory(	
+Data_Memory DM(	
         .clk_i(clk_i), 
         .addr_i(Mux3_result), 
         .data_i(ReadData2), 
@@ -121,14 +121,14 @@ Data_Memory data_memory(
         .MemWrite_i(MemWrite), 
         .data_o(DM_ReadData)
 );
-Mux2to1 write_for_reg(
+Mux2to1 #(.size(32))write_for_reg(
         .data0_i(Mux3_result), 
         .data1_i(DM_ReadData), 
-        .select_i(MemtoReg), 
+        .select_i(MemtoReg[0]), 
         .data_o(WriteData) 
 );
 wire branch_jump;
-Mux2to1 zero_or_not( 
+Mux2to1 #(.size(1))zero_or_not( 
         .data0_i(zero), 
         .data1_i(~zero), 
         .select_i(BranchType), 
@@ -140,19 +140,23 @@ and get_PCSrc(
         Branch,
         branch_jump
 );
-Mux2to1 PC_or_branch( 
+Mux2to1 #(.size(32))PC_or_branch( 
         .data0_i(PC_add1), 
         .data1_i(PC_add2), 
         .select_i(PCSrc), 
         .data_o(PC_no_jump) //32b
 );
-
-Mux2to1 jump_to_PC( 
+Mux2to1 #(.size(32))PC_or_Jump( 
         .data0_i(PC_no_jump), 
         .data1_i({PC_add1[31:28],instr[25:0],2'b00}), 
         .select_i(Jump), 
         .data_o(PC_i) //32b
 );
+// always @(instr)begin
+//     $display("PC,%b",PC_i);
+//     $display("instr:%b",instr);
+//     $display("Jump,%b",Jump);
+// end
 endmodule
 
 
