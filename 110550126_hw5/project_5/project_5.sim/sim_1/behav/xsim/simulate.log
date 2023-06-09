@@ -1,0 +1,8 @@
+Time resolution is 1 ps
+WARNING: File CO_P4_test_data1.txt referenced on C:/Users/User/Desktop/sophomore_2nd_semester/Computer_Organization/homework/110550126_hw5/CO_Lab5/Mux3to1.v at line 25 cannot be opened for reading. Please ensure that this file is available in the current working directory.
+============================================
+(A) basic score:          75 / 75
+============================================
+   Congratulation. You pass  TA's pattern   
+============================================
+$stop called at time : 40 ns : File "C:/Users/User/Desktop/sophomore_2nd_semester/Computer_Organization/homework/110550126_hw5/CO_Lab5/TestBench.v" Line 585
