@@ -7,13 +7,11 @@ verilog xil_defaultlib  \
 "../../../../../CO_Lab5/Decoder.v" \
 "../../../../../CO_Lab5/Instr_Memory.v" \
 "../../../../../CO_Lab5/Mux2to1.v" \
-"../../../../../CO_Lab5/Mux3to1.v" \
+"../../../../../CO_Lab5/Pipeline_CPU.v" \
 "../../../../../CO_Lab5/Program_Counter.v" \
 "../../../../../CO_Lab5/Reg_File.v" \
-"../../../../../CO_Lab5/Shifter.v" \
+"../../../../../CO_Lab5/Register.V" \
 "../../../../../CO_Lab5/Sign_Extend.v" \
-"../../../../../CO_Lab5/Simple_Single_CPU.v" \
-"../../../../../CO_Lab5/Zero_Filled.v" \
 "../../../../../CO_Lab5/TestBench.v" \
 
 # compile glbl module

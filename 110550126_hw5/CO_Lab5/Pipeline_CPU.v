@@ -31,6 +31,7 @@ Instr_Memory IM(
         .pc_addr_i(PC_o), //32b
         .instr_o(instr)//32b
 );
+
 wire [64-1:0] IFID_o;
 Register #(.size(64)) IFID(
     .clk_i(clk_i),
@@ -38,9 +39,10 @@ Register #(.size(64)) IFID(
     .data_i({PC_add1,instr}), 
     .data_o(IFID_o)
 );
+
 // 
 
-wire[32-1:0] ReadData1, ReadData2;
+
 wire RegWrite;//WB
 wire [2:0]ALUOP; //EX
 wire ALUSrc; //EX
@@ -52,32 +54,20 @@ wire Jump; //
 wire BranchType; //
 wire [1:0]MemtoReg; //WB
 
-Decoder decoder( 
-	.instr_op_i(IFID_o[31:26]), //6b
-	.RegWrite_o(RegWrite),	
-	.ALUOp_o(ALUOP), 
-	.ALUSrc_o(ALUSrc), 
-	.RegDst_o(RegDst), 
-	.Jump_o(Jump), 
-	.Branch_o(Branch), 
-	.BranchType_o(BranchType), 
-	.MemWrite_o(MemWrite), 
-	.MemRead_o(MemRead), 
-	.MemtoReg_o(MemtoReg)
-);
 
+wire[32-1:0] ReadData1, ReadData2;
 Reg_File RF( 
 	.clk_i(clk_i), 
 	.rst_n(rst_n), 
 	.RSaddr_i(IFID_o[25:21]), 
 	.RTaddr_i(IFID_o[20:16]), 
-	.RDaddr_i(MEMWB_o[4:0]), 
-	.RDdata_i(write_data_o[31:0]), 
+	.Wrtaddr_i(MEMWB_o[4:0]), 
+	.Wrtdata_i(write_data_o[31:0]), 
 	.RegWrite_i(MEMWB_o[70]), 
 	.RSdata_o(ReadData1), 
 	.RTdata_o (ReadData2)
 );
-
+wire [32-1:0]signextend;
 Sign_Extend sign_extend( 
 	.data_i(IFID_o[15:0]), 
 	.data_o(signextend)//32b 
@@ -94,6 +84,19 @@ Jump //
 BranchType //
 MemtoReg //WB
 */
+Decoder decoder( 
+	.instr_op_i(IFID_o[31:26]), //6b
+	.RegWrite_o(RegWrite),	
+	.ALUOp_o(ALUOP), 
+	.ALUSrc_o(ALUSrc), 
+	.RegDst_o(RegDst), 
+	.Jump_o(Jump), 
+	.Branch_o(Branch), 
+	.BranchType_o(BranchType), 
+	.MemWrite_o(MemWrite), 
+	.MemRead_o(MemRead), 
+	.MemtoReg_o(MemtoReg)
+);
 
 wire [148-1:0] IDEX_o;
 Register #(.size(148)) IDEX(
@@ -105,9 +108,9 @@ Register #(.size(148)) IDEX(
         Branch,         //M     [145]
         MemRead,        //M     [144]
         MemWrite,       //M     [143]
-        ALUOP[2:0],     //EX    [142:140]
-        ALUSrc,         //EX    [139]
-        RegDst[0],      //EX    [138]
+        RegDst[0],      //EX    [142]
+        ALUOP[2:0],     //EX    [141:139]
+        ALUSrc,         //EX    [138]
         IFID_o[64-1:32],//32    [137:106]
         ReadData1,      //32    [105:74]
         ReadData2,      //32    [73:42]
@@ -130,14 +133,14 @@ wire[32-1:0] alu_src_2;
 Mux2to1 #(.size(32)) ALUsrc2(
 	.data0_i(IDEX_o[73:42]),
 	.data1_i(IDEX_o[41:10]), 
-	.select_i(IDEX_o[139]),
+	.select_i(IDEX_o[138]),
 	.data_o(alu_src_2[31:0])
 );
 wire [4-1:0]ALU_operation;
 wire [2-1:0]FURslt;
 ALU_Ctrl aluctrl( 
 	.funct_i(IDEX_o[15:10]), 
-	.ALUOp_i(IDEX_o[142:140]), 
+	.ALUOp_i(IDEX_o[141:139]), 
 	.ALU_operation_o(ALU_operation[3:0]), 
 	.FURslt_o(FURslt)
 );
@@ -153,10 +156,10 @@ ALU alu(
 	.overflow(overflow)
 );
 wire[5-1:0] write_address;
-Mux2to1 #(.size(32)) ALUsrc(
+Mux2to1 #(.size(5)) regadd(
 	.data0_i(IDEX_o[9:5]),
 	.data1_i(IDEX_o[4:0]), 
-	.select_i(IDEX_o[138]),
+	.select_i(IDEX_o[142]),
 	.data_o(write_address[4:0])
 );
 wire[107-1:0] EXMEM_o;
@@ -175,7 +178,7 @@ Register #(.size(107)) EXMEM(
     .data_o(EXMEM_o)
 );
 wire PCsrc;
-and is_branch(PCsrc,EXMEM_o[104],EXMEM_o[69]);
+assign PCsrc = EXMEM_o[104]&EXMEM_o[69];
 
 wire [32-1:0] read_data;
 Data_Memory DM(	
@@ -199,11 +202,12 @@ Register #(.size(71)) MEMWB(
         }), 
     .data_o(MEMWB_o)
 );
+
 wire [32-1:0] write_data_o;
 
 Mux2to1 #(.size(32)) write_data(
-	.data0_i(MEMWB_o[68:37]), 
-	.data1_i(MEMWB_o[36:5]), 
+	.data0_i(MEMWB_o[36:5]), 
+	.data1_i(MEMWB_o[68:37]), 
 	.select_i(MEMWB_o[69]), 
 	.data_o(write_data_o)
 );

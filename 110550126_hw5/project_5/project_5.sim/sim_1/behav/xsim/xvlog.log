@@ -1,0 +1,28 @@
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/User/Desktop/sophomore_2nd_semester/Computer_Organization/homework/110550126_hw5/CO_Lab5/ALU.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ALU
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/User/Desktop/sophomore_2nd_semester/Computer_Organization/homework/110550126_hw5/CO_Lab5/ALU_Ctrl.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ALU_Ctrl
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/User/Desktop/sophomore_2nd_semester/Computer_Organization/homework/110550126_hw5/CO_Lab5/Adder.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Adder
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/User/Desktop/sophomore_2nd_semester/Computer_Organization/homework/110550126_hw5/CO_Lab5/Data_Memory.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Data_Memory
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/User/Desktop/sophomore_2nd_semester/Computer_Organization/homework/110550126_hw5/CO_Lab5/Decoder.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Decoder
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/User/Desktop/sophomore_2nd_semester/Computer_Organization/homework/110550126_hw5/CO_Lab5/Instr_Memory.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Instr_Memory
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/User/Desktop/sophomore_2nd_semester/Computer_Organization/homework/110550126_hw5/CO_Lab5/Mux2to1.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Mux2to1
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/User/Desktop/sophomore_2nd_semester/Computer_Organization/homework/110550126_hw5/CO_Lab5/Pipeline_CPU.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Pipeline_CPU
+WARNING: [VRFC 10-2938] 'PC_add1' is already implicitly declared on line 12 [C:/Users/User/Desktop/sophomore_2nd_semester/Computer_Organization/homework/110550126_hw5/CO_Lab5/Pipeline_CPU.v:23]
+WARNING: [VRFC 10-2938] 'PCsrc' is already implicitly declared on line 14 [C:/Users/User/Desktop/sophomore_2nd_semester/Computer_Organization/homework/110550126_hw5/CO_Lab5/Pipeline_CPU.v:183]
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/User/Desktop/sophomore_2nd_semester/Computer_Organization/homework/110550126_hw5/CO_Lab5/Program_Counter.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Program_Counter
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/User/Desktop/sophomore_2nd_semester/Computer_Organization/homework/110550126_hw5/CO_Lab5/Reg_File.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Reg_File
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/User/Desktop/sophomore_2nd_semester/Computer_Organization/homework/110550126_hw5/CO_Lab5/Register.V" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Register
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/User/Desktop/sophomore_2nd_semester/Computer_Organization/homework/110550126_hw5/CO_Lab5/Sign_Extend.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Sign_Extend
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/User/Desktop/sophomore_2nd_semester/Computer_Organization/homework/110550126_hw5/CO_Lab5/TestBench.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module TestBench
