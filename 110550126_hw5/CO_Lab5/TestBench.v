@@ -32,7 +32,7 @@ always #(`CYCLE_TIME/2) CLK = ~CLK;
 
 initial  begin
 
-$readmemb("CO_P5_test_data2.txt", cpu.IM.Instr_Mem);
+$readmemb("CO_P5_test_data1.txt", cpu.IM.Instr_Mem);
     
 	CLK = 0;
 	RST = 0;
@@ -46,7 +46,7 @@ end
 
 always@(posedge CLK) begin
     count = count + 1;
-	 
+	if( count == 30 ) begin 
 	//print result to transcript 
 	$display("Register===========================================================\n");
 	$display("r0=%0d, r1=%0d, r2=%0d, r3=%0d, r4=%0d, r5=%0d, r6=%0d, r7=%0d\n",
@@ -78,7 +78,8 @@ always@(posedge CLK) begin
 				 cpu.DM.memory[28], cpu.DM.memory[29], cpu.DM.memory[30], cpu.DM.memory[31]
 			  );
 			  
-
+	end
+	else ;
 end
   
 endmodule

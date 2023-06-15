@@ -15,7 +15,7 @@ INFO: [VRFC 10-311] analyzing module Mux2to1
 INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/User/Desktop/sophomore_2nd_semester/Computer_Organization/homework/110550126_hw5/CO_Lab5/Pipeline_CPU.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module Pipeline_CPU
 WARNING: [VRFC 10-2938] 'PC_add1' is already implicitly declared on line 12 [C:/Users/User/Desktop/sophomore_2nd_semester/Computer_Organization/homework/110550126_hw5/CO_Lab5/Pipeline_CPU.v:23]
-WARNING: [VRFC 10-2938] 'PCsrc' is already implicitly declared on line 14 [C:/Users/User/Desktop/sophomore_2nd_semester/Computer_Organization/homework/110550126_hw5/CO_Lab5/Pipeline_CPU.v:183]
+WARNING: [VRFC 10-2938] 'PCsrc' is already implicitly declared on line 14 [C:/Users/User/Desktop/sophomore_2nd_semester/Computer_Organization/homework/110550126_hw5/CO_Lab5/Pipeline_CPU.v:180]
 INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/User/Desktop/sophomore_2nd_semester/Computer_Organization/homework/110550126_hw5/CO_Lab5/Program_Counter.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module Program_Counter
 INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/User/Desktop/sophomore_2nd_semester/Computer_Organization/homework/110550126_hw5/CO_Lab5/Reg_File.v" into library xil_defaultlib
